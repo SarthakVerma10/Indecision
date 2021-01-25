@@ -1,0 +1,17 @@
+Add setState for options: DONE
+
+create state object with options in it.: DONE
+
+Disable the "What should I Do?" button when there are no options:DONE
+
+pass the state object to AddOption function: Instead pass a function that push options to the array beacuase 
+the AddOption cannot manipulate the array. Create a funciton called handleAddOption in the Indecision class. 
+create a setState class that returns state.option.push(option). Pass this function to AddOption:DONE
+
+add a function called this.setState() to handleAddOption:DONE
+
+When form is submitted get the value and push it to the options array.:Update: Instead of pushing the value 
+concat it to the options array.
+
+Add removeAll funciton
+ 

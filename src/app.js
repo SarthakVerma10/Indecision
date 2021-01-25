@@ -1,14 +1,31 @@
 class IndecisionApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleAddOption = this.handleAddOption.bind(this);
+    this.state = {
+      options : ['Thing one', 'Thing two', 'Thing three']
+    };
+  }
+
+  handleAddOption(option) {
+    this.setState((prevState) => {
+      return {
+        options: prevState.options.concat(option)
+      }
+    })
+  }
+
   render() {
     const title = 'Indecision';
     const subtitle = "Put your life in hands of a computer";
-    const options = ['Thing one', 'Thing two', 'Thing three'];
+    //const options = ['Thing one', 'Thing two', 'Thing three'];
+
     return (
       <div>
           <Header title={title} subtitle={subtitle} />
-          <Action />
-          <Options options={options} />
-          <AddOption />
+          <Action hasOption={this.state.options.length > 0}/>
+          <Options options={this.state.options} />
+          <AddOption handleAddOption={this.handleAddOption}/>
       </div>
     );
   }
@@ -32,7 +49,12 @@ class Action extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handlePick}>What should I do</button>
+                <button 
+                  onClick={this.handlePick}
+                  disabled={!this.props.hasOption}
+                >
+                  What should I do
+                </button>
             </div>
         );
     }
@@ -70,11 +92,16 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleAddOption = this.handleAddOption.bind(this);
+  }
+
   handleAddOption(e) {
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
     if (option) {
-      alert(option);
+      this.props.handleAddOption(option);
     }
   }
 
