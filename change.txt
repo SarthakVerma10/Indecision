@@ -13,5 +13,9 @@ add a function called this.setState() to handleAddOption:DONE
 When form is submitted get the value and push it to the options array.:Update: Instead of pushing the value 
 concat it to the options array.
 
-Add removeAll funciton
+Add removeAll funciton: Create a funciton in Indecison class. Create setState class than set the value of options to an empty array. 
+Then pass the function to Options.:DONE
+
+Add functionality to the Choose Button: Read the length of the array and save it in a const.:DONE. Create a random funciton and 
+store it in a const.:DONE
  
